@@ -1,10 +1,10 @@
 "use client";
 
-import { startTransition, useState, ViewTransition } from "react";
-import TodoItem, { TodoItemProps } from "./todo-item";
-import Button from "./button";
+import { useState } from "react";
+import TodoItem, { TodoItemProps } from "../molecules/todo-item";
+import TodoForm from "../molecules/todo-form";
 
-export default function TodoWrapper() {
+export default function TodoApp() {
   const [todos, setTodos] = useState<
     Omit<TodoItemProps, "onToggle" | "onDelete">[]
   >([]);
@@ -41,18 +41,11 @@ export default function TodoWrapper() {
     <div className="p-8  min-h-[60vh]  border rounded-2xl min-w-[max(320px,60vw)]">
       <h1 className="text-4xl lg:text-8xl font-bold mb-4">Todo List</h1>
 
-      {/* todo form */}
-      <form onSubmit={handleSubmit} className="flex gap-2 mb-4">
-        <input
-          type="text"
-          value={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}
-          className="border p-2 rounded flex-1 text-black"
-          placeholder="Add a new todo..."
-          required
-        />
-        <Button type="submit">Add</Button>
-      </form>
+      <TodoForm
+        onSubmit={handleSubmit}
+        inputValue={inputValue}
+        setInputValue={setInputValue}
+      />
 
       <ul className="space-y-2">
         {todos.map((todo) => (

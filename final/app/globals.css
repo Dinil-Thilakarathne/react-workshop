@@ -3,7 +3,7 @@
 @theme inline {
   --font-helvetica-neue: var(--font-helvetica-neue);
 
-  --color-background: hsl(300 0% 90%);
+  --color-background: hsl(300 0% 95%);
   --color-foreground: hsl(300 0% 16%);
 }
 

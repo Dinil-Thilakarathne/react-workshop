@@ -1,3 +1,5 @@
+import Button from "../atoms/button";
+
 export interface TodoItemProps extends Omit<
   React.HTMLAttributes<HTMLLIElement>,
   "onToggle"
@@ -27,12 +29,12 @@ export default function TodoItem({
       <span className={completed ? "line-through text-gray-500" : ""}>
         {title}
       </span>
-      <button
+      <Button
         onClick={() => onDelete(id)}
-        className="px-2 py-1 text-red-500 hover:bg-red-50 rounded text-xs hover:cursor-pointer"
+        className="px-2 py-1 text-red-500 hover:bg-red-50 rounded text-xs hover:cursor-pointer bg-transparent shadow-none"
       >
         remove
-      </button>
+      </Button>
     </li>
   );
 }
