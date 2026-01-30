@@ -8,24 +8,25 @@ body {
   align-items: center;
   min-height: 100vh;
   margin: 0;
-  background-color: #ffffff;
-  color: #000;
+  background-color: #f2f2f2; /* hsl(300 0% 95%) */
+  color: #292929; /* hsl(300 0% 16%) */
 }
 
 .container {
   padding: 2rem;
   min-height: 60vh;
-  border: 1px solid #e5e7eb;
+  border: 1px solid #292929;
   border-radius: 1rem;
   min-width: 60vw;
   width: 60vw; /* Fallback */
   width: max(320px, 60vw);
+  /* Transparent background to match React */
 }
 
 .title {
   font-size: 2.25rem;
-  font-weight: bold;
-  margin-bottom: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem; /* mb-4 */
 }
 
 @media (min-width: 1024px) {
@@ -37,51 +38,57 @@ body {
 #todo-form {
   display: flex;
   gap: 0.5rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem; /* mb-4 */
 }
 
 #todo-input {
   flex: 1;
   padding: 0.5rem;
   border: 1px solid #e5e7eb;
-  border-radius: 0.5rem;
+  border-radius: 0.25rem; /* rounded */
   font-size: 1rem;
+  background-color: white;
+  color: black;
 }
 
 button[type="submit"] {
   padding: 0.5rem 1rem;
-  background-color: #000;
+  background-color: #3b82f6; /* bg-blue-500 */
   color: #fff;
   border: none;
-  border-radius: 0.5rem;
+  border-radius: 0.25rem; /* rounded */
   cursor: pointer;
-  font-weight: 500;
+  font-weight: 400; /* Default weight in React */
 }
 
 button[type="submit"]:hover {
-  opacity: 0.9;
+  background-color: #2563eb; /* bg-blue-600 */
 }
 
 .todo-list {
   list-style: none;
   padding: 0;
   margin: 0;
+  /* space-y-2 equivalent */
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .todo-item {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 0.75rem;
-  border: 1px solid #e5e7eb;
-  border-radius: 0.5rem;
-  margin-bottom: 0.5rem;
+  gap: 0.5rem; /* gap-2 */
+  /* Remove border/padding to match React */
+  padding: 0;
+  border: none;
 }
 
+/* Helper to mimic flat structure despite nested div in JS */
 .todo-content {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.5rem; /* gap-2 */
 }
 
 .todo-text {
@@ -90,24 +97,27 @@ button[type="submit"]:hover {
 
 .completed {
   text-decoration: line-through;
-  color: #9ca3af;
+  color: #6b7280; /* text-gray-500 */
 }
 
 .delete-btn {
-  color: #ef4444;
-  background: none;
+  color: #ef4444; /* text-red-500 */
+  background: transparent;
   border: none;
   cursor: pointer;
-  font-size: 0.875rem;
+  font-size: 0.75rem; /* text-xs */
+  padding: 0.25rem 0.5rem; /* px-2 py-1 */
+  border-radius: 0.25rem; /* rounded */
 }
 
 .delete-btn:hover {
-  text-decoration: underline;
+  background-color: #fef2f2; /* hover:bg-red-50 */
+  text-decoration: none;
 }
 
 .empty-message {
   text-align: center;
-  color: #6b7280;
+  color: #6b7280; /* text-gray-500 */
   margin-top: 2rem;
   display: none; /* Controlled by JS */
 }
